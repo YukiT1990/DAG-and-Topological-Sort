@@ -12,12 +12,12 @@ class Solution:
             empty_array = []
             graph[n] = empty_array
 
-		# build graph and indegrees dictionaries
+        # build graph and indegrees dictionaries
         for eachPrereq in prerequisites:
             graph[eachPrereq[1]].append(eachPrereq[0])
             indegrees[eachPrereq[0]] += 1
 
-		# initalize queue with all nodes that have indegree = 0
+        # initalize queue with all nodes that have indegree = 0
         q = []
         for course in indegrees:
             if indegrees[course] == 0:
@@ -35,5 +35,5 @@ class Solution:
                 if indegrees[nextCourse] == 0:
                     q.append(nextCourse)
 
-		# check to see if we've visited all nodes
+        # check to see if we've visited all nodes
         return len(visited) == numCourses
